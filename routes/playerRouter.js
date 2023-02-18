@@ -15,4 +15,5 @@ playerRouter
 playerRouter
 .route('/delete/:playerId')
 .get(playerController.delete)
+
 module.exports = playerRouter;

@@ -10,8 +10,8 @@
 <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <a class="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+          <a class="navbar-item" href="/players">
+            <img class="image is-64x64" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9RH-zdVpPGuiO0ycb5wcm9a1WQvKpVQsKdw&usqp=CAU ">
           </a>
     
           <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -23,11 +23,11 @@
     
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
-            <a class="navbar-item">
-              Home
+            <a class="navbar-item" href="/nations">
+              Nations
             </a>
     
-            <a class="navbar-item">
+            <a class="navbar-item" href="/players">
               Players
             </a>
           </div>
@@ -57,7 +57,7 @@
                 <div class="field-body">
                   <div class="field">
                     <div class="control">
-                      <input class="input is-info" name="name" type="text" value="<%= player.name %>"" >
+                      <input class="input is-info" name="name" type="text" value="<%= player.name %>" required >
                     </div>
                   </div>
                 </div>
@@ -72,7 +72,7 @@
                       <div class="select is-fullwidth">
                         <select name="club">
                             <%for (let club of clubList){ %>
-                                <option value=" <%= club.name %>" 
+                                <option value="<%= club.name %>" 
                                 <%= JSON.stringify(club.name) === JSON.stringify(player.club) ? 'selected' : '' %>
                                 ><%= club.name %> 
                                 </option> 
@@ -114,7 +114,7 @@
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <input class="input is-info" name="image" type="text" value="<%= player.image %>">
+                            <input class="input is-info" name="image" type="text" value="<%= player.image %>" required>
                         </div>
 
                     </div>
@@ -128,7 +128,7 @@
                     <div class="field">
                         <div class="control">
                             <input class="input is-info" name="goals" type="number" min="0"
-                                value="<%= player.goals %>">
+                                value="<%= player.goals %>" required>
                         </div>
 
                     </div>
@@ -164,9 +164,15 @@
                 <div class="field-body">
                   <div class="field">
                     <div class="control">
+
                       <button class="button is-primary" type="submit">
                         Save
                       </button>
+
+                      <a href="/players" class="button is-danger">
+                        Back
+                      </a>
+                      
                     </div>
                   </div>
                 </div>
@@ -176,6 +182,5 @@
         </div>
     
       </div>
-    
 </body>
 </html>
